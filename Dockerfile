@@ -40,11 +40,11 @@ ENV TERRARIA_DIR=/root/.local/share/Terraria \
     autocreate=2 \
     seed='' \
     worldname=TerrariaWorld \
-    difficulty=0 \
-    maxplayers=16 \
+    difficulty=1 \
+    maxplayers=6 \
     port=7777 \
     password='' \
-    motd="Welcome!" \
+    motd="Your Papa loves YOU!" \
     worldpath=${TERRARIA_DIR}/Worlds \
     banlist=banlist.txt \
     secure=1 \
@@ -59,7 +59,7 @@ WORKDIR ${TERRARIA_DIR}
 
 COPY --from=builder ${TERRARIA_DIR}/* ./
 
-VOLUME [`${TERRARIA_DIR}/Worlds`]
+## VOLUME [`${TERRARIA_DIR}/Worlds`]
 
 ENTRYPOINT [ "./init-TerrariaServer.sh" ]
 
